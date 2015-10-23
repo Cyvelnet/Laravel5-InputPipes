@@ -1,5 +1,5 @@
 {
-    "name": "cyvelnet/input-pipe",
+    "name": "cyvelnet/larave5-InputPipe",
     "license": "MIT",
     "description": "A simple way to format user input for laravel 5",
     "authors": [
