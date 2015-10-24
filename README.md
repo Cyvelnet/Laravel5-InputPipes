@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes.svg)](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes)
 [![Latest Stable Version](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/v/stable)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
+[![Latest Unstable Version](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/v/unstable)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
 [![License](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/license)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
 
 
