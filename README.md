@@ -48,6 +48,8 @@ class CustomPipes extends \Cyvelnet\InputPipe\Pipes {
 }
 ```
 
+Then register you class with
+
 `Pipe::extra(function($data, $pipes) {
     return new CustomPipes($data, $pipes);
 });
