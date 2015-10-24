@@ -14,7 +14,7 @@ This single line of code simply the time we spend on formatting input.
 
 Require this package with composer using the following command:
 
-`composer require cyvelnet/cyvelnet/laravel5-inputpipe`
+`composer require cyvelnet/laravel5-inputpipe`
 
 
 Add the ServiceProvider to the providers array in config/app.php 
