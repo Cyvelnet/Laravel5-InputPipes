@@ -1,6 +1,8 @@
 # Laravel5-InputPipes
 
 [![Build Status](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes.svg)](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes)
+[![Latest Stable Version](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/v/stable)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
+[![License](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/license)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
 
 
 We all face the problems when user submit a form, and all these form data is a mess, sometime we even wanted to trim the inputs, cast them, and reformat them, in fact it is not the hardest thing in the world, but these small tasks really make our code look lengthy, and InputPipes comes into play.
