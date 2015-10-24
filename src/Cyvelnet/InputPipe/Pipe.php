@@ -31,7 +31,7 @@ class Pipe implements PipeProcessorContract
     protected $extensions = [];
 
     /**
-     * PipeProcessor constructor.
+     * Pipe constructor.
      *
      * @param array $data
      * @param array $pipes
