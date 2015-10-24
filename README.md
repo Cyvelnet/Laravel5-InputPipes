@@ -45,8 +45,8 @@ class CustomPipes extends \Cyvelnet\InputPipe\Pipes {
 }
 ```
 
-`Pipe::extra(function() {
-    return new CustomPipes;
+`Pipe::extra(function($data, $pipes) {
+    return new CustomPipes($data, $pipes);
 });
 `
 
