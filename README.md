@@ -1,6 +1,9 @@
 # Laravel5-InputPipes
 
 [![Build Status](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes.svg)](https://travis-ci.org/Cyvelnet/Laravel5-InputPipes)
+[![Latest Stable Version](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/v/stable)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
+[![Latest Unstable Version](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/v/unstable)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
+[![License](https://poser.pugx.org/cyvelnet/laravel5-inputpipe/license)](https://packagist.org/packages/cyvelnet/laravel5-inputpipe)
 
 
 We all face the problems when user submit a form, and all these form data is a mess, sometime we even wanted to trim the inputs, cast them, and reformat them, in fact it is not the hardest thing in the world, but these small tasks really make our code look lengthy, and InputPipes comes into play.
@@ -11,7 +14,7 @@ This single line of code simply the time we spend on formatting input.
 
 Require this package with composer using the following command:
 
-`composer require cyvelnet/cyvelnet/laravel5-inputpipe`
+`composer require cyvelnet/laravel5-inputpipe`
 
 
 Add the ServiceProvider to the providers array in config/app.php 
