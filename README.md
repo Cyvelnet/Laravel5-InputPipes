@@ -72,6 +72,8 @@ Finally trigger your pipes
 `$inputs = Pipe::make(Input::only('foo', 'bar'), ['foo', 'bar'])->get();`
 
 
+### To Do
+- Laravel5 FormRequest like class to store the rules ?
 
 
 
