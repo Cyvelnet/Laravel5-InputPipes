@@ -12,7 +12,7 @@ We all face the problems when user submit a form, and all these form data is a m
 
 This single line of code simply the time we spend on formatting input.
 
-Require this package with composer using the following command:
+Require this package with composer with the following command:
 
 `composer require cyvelnet/laravel5-inputpipe`
 
