@@ -34,7 +34,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testTrimPipe()
     {
-        $factory = $this->instance(['foo' => '    Foo   '], ['trim']);
+        $factory = $this->instance(['foo' => '    Foo   '], ['foo' => 'trim']);
 
         $this->assertEquals(['foo' => 'Foo'], $factory->get());
     }
@@ -44,7 +44,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testSnakeCasePipeWithoutSpace()
     {
-        $factory = $this->instance(['foo' => 'FooBar'], ['snake']);
+        $factory = $this->instance(['foo' => 'FooBar'], ['foo' =>'snake']);
 
         $this->assertEquals(['foo' => 'foo_bar'], $factory->get());
     }
@@ -54,7 +54,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testSnakeCasePipeWithSpace()
     {
-        $factory = $this->instance(['foo' => 'Foo Bar'], ['snake']);
+        $factory = $this->instance(['foo' => 'Foo Bar'], ['foo' => 'snake']);
 
         $this->assertEquals(['foo' => 'foo_bar'], $factory->get());
     }
@@ -64,7 +64,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testCamelCasePipe()
     {
-        $factory = $this->instance(['foo' => 'Foo Bar'], ['camel']);
+        $factory = $this->instance(['foo' => 'Foo Bar'], ['foo' => 'camel']);
 
         $this->assertEquals(['foo' => 'fooBar'], $factory->get());
     }
@@ -74,7 +74,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testLowerCasePipe()
     {
-        $factory = $this->instance(['foo' => 'Foo Bar'], ['lower']);
+        $factory = $this->instance(['foo' => 'Foo Bar'], ['foo' => 'lower']);
 
         $this->assertEquals(['foo' => 'foo bar'], $factory->get());
     }
@@ -84,7 +84,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testUpperCasePipe()
     {
-        $factory = $this->instance(['foo' => 'foo bar'], ['upper']);
+        $factory = $this->instance(['foo' => 'foo bar'], ['foo' => 'upper']);
 
         $this->assertEquals(['foo' => 'FOO BAR'], $factory->get());
     }
@@ -94,7 +94,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testUcwordPipe()
     {
-        $factory = $this->instance(['foo' => 'fOo bAr'], ['ucword']);
+        $factory = $this->instance(['foo' => 'fOo bAr'], ['foo' => 'ucword']);
 
         $this->assertEquals(['foo' => 'FOo BAr'], $factory->get());
     }
@@ -104,7 +104,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testSlugPipe()
     {
-        $factory = $this->instance(['foo' => 'fOo bAr'], ['slug']);
+        $factory = $this->instance(['foo' => 'fOo bAr'], ['foo' => 'slug']);
 
         $this->assertEquals(['foo' => 'foo-bar'], $factory->get());
     }
@@ -114,9 +114,18 @@ class PipeTest extends PHPUnit_Framework_TestCase
      */
     public function testNestedPipes()
     {
-        $factory = $this->instance(['foo' => '  fOo bAr  baz', 'bar' => ' baz'], ['trim|upper|camel', 'upper|trim']);
+        $factory = $this->instance(['foo' => '  fOo bAr  baz', 'bar' => ' baz'], ['foo' => 'trim|upper|camel', 'bar' => 'upper|trim']);
 
         $this->assertEquals(['foo' => 'fOOBARBAZ', 'bar' => 'BAZ'], $factory->get());
+    }
+
+    public function testDefaultPipes()
+    {
+        $factoryWithTrim = $this->instance(['foo' => '  fOo bAr  baz', 'bar' => ' baz'], ['foo' => 'trim|upper|camel', 'bar' => 'upper|trim']);
+
+        $factoryWithAllTrim = $this->instance(['foo' => '  fOo bAr  baz', 'bar' => ' baz'], ['foo' => 'upper|camel', 'bar' => 'upper'])->all('trim');
+
+        $this->assertEquals($factoryWithTrim->get(), $factoryWithAllTrim->get());
     }
 
 }

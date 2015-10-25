@@ -31,6 +31,11 @@ class Pipe implements PipeProcessorContract
     protected $extensions = [];
 
     /**
+     * @var string
+     */
+    protected $default_pipes = '';
+
+    /**
      * Pipe constructor.
      *
      * @param array $data
@@ -43,6 +48,20 @@ class Pipe implements PipeProcessorContract
     }
 
     /**
+     * apply pipes too all inputs
+     *
+     * @param string $pipes
+     *
+     * @return $this
+     */
+    public function all($pipes)
+    {
+        $this->default_pipes = $pipes;
+
+        return $this;
+    }
+
+    /**
      * get the piped results.
      *
      * @return array
@@ -50,24 +69,32 @@ class Pipe implements PipeProcessorContract
     public function get()
     {
         $data = $this->data;
+
         foreach ($data as $key => &$value) {
-
-            $pipes = $this->parsePipes($key);
-
-            foreach ($pipes as $pipe) {
-
-                if ($pipe[0] === '') {
-                    continue;
-                }
-
-                $method = 'pipe' . $pipe[0];
-                $value = $this->$method($value, $pipe[1]);
-
-            }
-
+            $this->processPipes($value, $key);
         }
 
         return $data;
+    }
+
+    /**
+     * @param $data
+     * @param $key
+     */
+    private function processPipes(&$data, $key)
+    {
+        $pipes = $this->parsePipes($key);
+
+        foreach ($pipes as $pipe) {
+
+            if ($pipe[0] === '') {
+                continue;
+            }
+
+            $method = 'pipe' . $pipe[0];
+            $data = $this->$method($data, $pipe[1]);
+
+        }
     }
 
 
@@ -277,7 +304,8 @@ class Pipe implements PipeProcessorContract
     {
         $pipesWithKeys = [];
 
-        $pipes = $this->pipes;
+        $pipes = $this->mergeWithDefaultPipes();
+
         $index = 0;
         foreach ($this->data as $key => $value) {
             $element = array_slice($pipes, $index);
@@ -286,6 +314,25 @@ class Pipe implements PipeProcessorContract
         }
 
         return $pipesWithKeys;
+    }
+
+    private function mergeWithDefaultPipes()
+    {
+        $pipes = $this->pipes;
+
+        $keys = array_keys($this->data);
+
+        // fill all undefined input keys with empty value
+        $defaults = array_fill_keys($keys, '');
+
+        // overwrite $default with existing data
+        $pipes = array_merge($defaults, $pipes);
+
+        foreach ($this->data as $key => $data) {
+            $pipes[$key] = rtrim("{$this->default_pipes}|$pipes[$key]", '|');
+        }
+
+        return $pipes;
     }
 
 
