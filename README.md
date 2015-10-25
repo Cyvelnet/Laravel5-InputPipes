@@ -25,6 +25,18 @@ and register Facade
 
 `Cyvelnet\InputPipe\Facades\PipeFacade::class`
 
+
+##### Available Pipes
+
+ - trim
+ - snake (snake case)
+ - camel (camel case)
+ - lower (lower case)
+ - upper (upper case)
+ - ucword
+ - slug
+ - ... and more coming soon or a PR to add general pipes
+
 ##### Extend functionality
 
 
