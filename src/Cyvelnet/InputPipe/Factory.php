@@ -2,13 +2,10 @@
 
 namespace Cyvelnet\InputPipe;
 
-
 use Cyvelnet\InputPipe\Contracts\FactoryContract;
 
 /**
- * Class Factory
- *
- * @package Cyvelnet\InputPipe
+ * Class Factory.
  */
 class Factory implements FactoryContract
 {
@@ -34,9 +31,9 @@ class Factory implements FactoryContract
     }
 
     /**
-     * Extend custom pipe handlers
+     * Extend custom pipe handlers.
      *
-     * @param string $pipe
+     * @param string          $pipe
      * @param \Closure|string $extension
      *
      * @return mixed
@@ -44,7 +41,6 @@ class Factory implements FactoryContract
     public function extend($pipe, $extension)
     {
         $this->extensions[$pipe] = $extension;
-
     }
 
     /**
@@ -53,7 +49,6 @@ class Factory implements FactoryContract
     public function resolve($data, $pipes)
     {
         if (is_null($this->extra)) {
-
             return new Pipe($data, $pipes);
         }
 
@@ -61,7 +56,7 @@ class Factory implements FactoryContract
     }
 
     /**
-     * add extra/custom pipe
+     * add extra/custom pipe.
      *
      * @param $extra
      */
@@ -69,5 +64,4 @@ class Factory implements FactoryContract
     {
         $this->extra = $extra;
     }
-
 }

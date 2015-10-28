@@ -4,18 +4,12 @@ namespace Cyvelnet\InputPipe;
 
 use BadMethodCallException;
 use Cyvelnet\InputPipe\Contracts\PipeProcessorContract;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 /**
- * Class PipeProcessor
- *
- * @package Cyvelnet\InputPipe
+ * Class PipeProcessor.
  */
 class Pipe implements PipeProcessorContract
 {
-
     /**
      * @var array
      */
@@ -48,7 +42,7 @@ class Pipe implements PipeProcessorContract
     }
 
     /**
-     * apply pipes too all inputs
+     * apply pipes too all inputs.
      *
      * @param string $pipes
      *
@@ -86,17 +80,14 @@ class Pipe implements PipeProcessorContract
         $pipes = $this->parsePipes($key);
 
         foreach ($pipes as $pipe) {
-
             if ($pipe[0] === '') {
                 continue;
             }
 
-            $method = 'pipe' . $pipe[0];
+            $method = 'pipe'.$pipe[0];
             $data = $this->$method($data, $pipe[1]);
-
         }
     }
-
 
     /**
      * @param $extension
@@ -120,7 +111,6 @@ class Pipe implements PipeProcessorContract
         return $this->extensions;
     }
 
-
     /**
      * @param $attribute
      *
@@ -142,9 +132,7 @@ class Pipe implements PipeProcessorContract
         $callback = $this->extensions[$pipe];
 
         return call_user_func_array($callback, $parameters);
-
     }
-
 
     /**
      * @param $pipe
@@ -190,11 +178,10 @@ class Pipe implements PipeProcessorContract
         return explode(',', $parameters);
     }
 
-
     // pipe handlers here
 
     /**
-     * pipe inputs though trim pipe
+     * pipe inputs though trim pipe.
      *
      * @param $data
      * @param array $parameters
@@ -207,7 +194,7 @@ class Pipe implements PipeProcessorContract
     }
 
     /**
-     * pipe inputs though snake case pipe
+     * pipe inputs though snake case pipe.
      *
      * @param $data
      * @param array $parameters
@@ -216,11 +203,11 @@ class Pipe implements PipeProcessorContract
      */
     public function pipeSnake($data, $parameters = [])
     {
-        return strtolower(preg_replace('/\s/', '', preg_replace('/(.)(?=[A-Z])/', '$1' . '_', $data)));
+        return strtolower(preg_replace('/\s/', '', preg_replace('/(.)(?=[A-Z])/', '$1'.'_', $data)));
     }
 
     /**
-     * pipe inputs though camel case pipe
+     * pipe inputs though camel case pipe.
      *
      * @param $data
      * @param array $parameters
@@ -266,7 +253,7 @@ class Pipe implements PipeProcessorContract
     }
 
     /**
-     * pipe inputs though slug pipe
+     * pipe inputs though slug pipe.
      *
      * @param $data
      * @param array $parameters
@@ -286,7 +273,7 @@ class Pipe implements PipeProcessorContract
      *
      * @return mixed
      */
-    function __call($method, $arguments)
+    public function __call($method, $arguments)
     {
         $pipe = snake_case(substr($method, 4));
 
@@ -334,6 +321,4 @@ class Pipe implements PipeProcessorContract
 
         return $pipes;
     }
-
-
 }

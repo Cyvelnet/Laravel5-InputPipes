@@ -6,7 +6,7 @@ use Mockery as m;
  * Created by PhpStorm.
  * User: Terry
  * Date: 10/23/2015
- * Time: 5:11 PM
+ * Time: 5:11 PM.
  */
 class PipeTest extends PHPUnit_Framework_TestCase
 {
@@ -30,7 +30,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test trim pipe
+     * test trim pipe.
      */
     public function testTrimPipe()
     {
@@ -40,17 +40,17 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test snake case pipe with data without space
+     * test snake case pipe with data without space.
      */
     public function testSnakeCasePipeWithoutSpace()
     {
-        $factory = $this->instance(['foo' => 'FooBar'], ['foo' =>'snake']);
+        $factory = $this->instance(['foo' => 'FooBar'], ['foo' => 'snake']);
 
         $this->assertEquals(['foo' => 'foo_bar'], $factory->get());
     }
 
     /**
-     * test snake case pipe with data without space
+     * test snake case pipe with data without space.
      */
     public function testSnakeCasePipeWithSpace()
     {
@@ -60,7 +60,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test camel case pipe
+     * test camel case pipe.
      */
     public function testCamelCasePipe()
     {
@@ -70,7 +70,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test lower case pipe
+     * test lower case pipe.
      */
     public function testLowerCasePipe()
     {
@@ -80,7 +80,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test upper case pipe
+     * test upper case pipe.
      */
     public function testUpperCasePipe()
     {
@@ -90,7 +90,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test ucword pipe
+     * test ucword pipe.
      */
     public function testUcwordPipe()
     {
@@ -100,7 +100,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test slug pipe
+     * test slug pipe.
      */
     public function testSlugPipe()
     {
@@ -110,7 +110,7 @@ class PipeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test multiple pipes
+     * test multiple pipes.
      */
     public function testNestedPipes()
     {
@@ -127,5 +127,4 @@ class PipeTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($factoryWithTrim->get(), $factoryWithAllTrim->get());
     }
-
 }

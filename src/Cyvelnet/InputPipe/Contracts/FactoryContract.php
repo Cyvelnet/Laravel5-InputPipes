@@ -2,16 +2,11 @@
 
 namespace Cyvelnet\InputPipe\Contracts;
 
-
-    /**
-     * Class FactoryContract
-     *
-     * @package Cyvelnet\InputPipe\Contracts
-     */
 /**
- * Interface FactoryContract
- *
- * @package Cyvelnet\InputPipe\Contracts
+ * Class FactoryContract.
+ */
+/**
+ * Interface FactoryContract.
  */
 interface FactoryContract
 {
@@ -26,9 +21,9 @@ interface FactoryContract
     public function make(array $data, array $pipes);
 
     /**
-     * Extend custom pipe handlers
+     * Extend custom pipe handlers.
      *
-     * @param string $pipe
+     * @param string          $pipe
      * @param \Closure|string $extension
      *
      * @return mixed
