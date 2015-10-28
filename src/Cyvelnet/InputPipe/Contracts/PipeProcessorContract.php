@@ -3,13 +3,11 @@
 namespace Cyvelnet\InputPipe\Contracts;
 
 /**
- * Interface InputPipesContract
- *
- * @package Cyvelnet\InputPipe\Contracts
+ * Interface InputPipesContract.
  */
 interface PipeProcessorContract
 {
-//
+    //
 //    /**
 //     * Create a new pipe instance
 //     *
@@ -34,6 +32,6 @@ interface PipeProcessorContract
 //     *
 //     * @return array
 //     */
-    public function get();
 
+    public function get();
 }

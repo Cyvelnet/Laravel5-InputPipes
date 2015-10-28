@@ -1,10 +1,11 @@
-<?php namespace Cyvelnet\InputPipe;
+<?php
+
+namespace Cyvelnet\InputPipe;
 
 use Illuminate\Support\ServiceProvider;
 
 class InputPipeServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -33,5 +34,4 @@ class InputPipeServiceProvider extends ServiceProvider
     {
         return ['pipes'];
     }
-
 }

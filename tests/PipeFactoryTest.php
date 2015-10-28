@@ -19,7 +19,6 @@ class PipeFactoryTest extends PHPUnit_Framework_TestCase
 
         $pipe = $factory->make([], []);
 
-
         $this->assertEquals(['foo' => $fooClosure], $pipe->getExtensions());
     }
 
